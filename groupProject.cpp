@@ -15,11 +15,11 @@ int choice;
     cin >> choice;
     
     switch (choice) {
-    case 1: //  Thierry
+    case 1: //  Jeremy
     // Insert Code Block
     	cout << "Add an Item";
     	break;
-    case 2: // Jeremy
+    case 2: // Thierry
     // Insert Code Block
     	cout << "Search for an Item";
     	break;
