@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-	int choice;
+int choice;
     cout << "Inventory Tracking System \n";
     cout << "1. Add an Item \n";
     cout << "2. Search for an Item \n";
