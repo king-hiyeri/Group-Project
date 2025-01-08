@@ -1,19 +1,20 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
-	int choice;
-	int resp = 1;
-	int size = 0;
-	struct details{
-		string itemID;
+struct details{
+		int itemID;
 		string name;
 		int quantity;
 		float price;
 	};
 	
-	details newItem[size];
+int main()
+{
+	int choice;
+	int resp = 1;
+	int size = 0;
+
+	details newItem[100];
 	
 	do {
         cout << "Inventory Tracking System \n";
@@ -29,14 +30,31 @@ int main()
         switch (choice) {
         case 1: // J use an array of structures to store details
 		  
-            while (resp != 0) // Sentinel controlled loop
-			{
+            while (resp != 0 && size < 100){ // Sentinel controlled loop
 			cout << "Item ID: ";
-			cin >> newItem.itemID;
-			size++;
+			cin >> newItem[size].itemID;
+			if (newItem[size].itemID <= 0 ){
+			   cout << "Invalid input. Please input again " << endl;
+			   cin >> resp;		
 			}
-            cout << "It is finished.\n";
-            cout << "----------------------------------------\n\n";
+			
+			
+			cout << "Name: ";
+			cin >> newItem[size].name;
+			
+			cout << "Quantity: ";
+			cin >> newItem[size].quantity;
+			
+			cout << "Price: RM";
+			cin >> newItem[size].price;
+			 
+			size++;
+			
+            cout << "Add more Items?\n";
+            cout << "(Input 1 to continue, Input 0 to Exit)\n";
+            cin >> resp;
+            cout << "\n****************************************************************************************\n";
+        }
         	break;
         	
         case 2: // Thierry
