@@ -58,7 +58,7 @@ int main()
         	break;
         	
         case 2: // Thierry
-        	cout << "Search for an Item \n";
+        cout << "Search for an Item \n";
 		int choice, position, searchID;
 		string searchName;
 		
@@ -69,9 +69,9 @@ int main()
 			cout << "Enter item ID: ";
 			cin >> searchID;
 			
-			for (i = 0; i < size: i++)
+			for (int i = 0; i < size; i++)
 			{
-				if (searchID == newItem[i].itemID){
+				if (searchID == newItem[size].itemID){
 					position = i;
 				}
 			}
@@ -80,28 +80,50 @@ int main()
 			cout << "Enter item name: ";
 			cin >> searchName;
 			
-			for (i=0; i < size: i++)
+			for (int i=0; i < size; i++)
 			{
-				if (searchName == newItem[i].name){
+				if (searchName == newItem[size].name){
 					position = i;
 				}
 			}
 			
 		}else {
-			cout << "Invalid input. Please enter a valid input."
+			cout << "Invalid input. Please enter a valid input.";
 			position = -1;
 		}
 		
 		while (position != -1){
-			cout << "--------------------------Search result-----------------------------"
+			cout << "--------------------------Search result-----------------------------";
 			cout << newItem[position].itemID << " " << newItem[position].name << " "
 				 << newItem[position].quantity << " " << newItem[position].price << endl;
 			break;
 		}
 		
-        	break;
         case 3: // Luq
-        	cout << "Update Stock \n";
+        	if (itemCount == 0) {
+        cout << "No items in the inventory to update.\n";
+        return -1;
+        }
+        int updateId;
+        cout << "Enter Item ID to update stock: ";
+        cin >> updateId;
+        for (int i = 0; i < itemCount; ++i) {
+        if (inventory[i].id == updateId) {
+            cout << "Current Quantity: " << inventory[i].quantity << "\n";
+            cout << "Enter New Quantity: ";
+            int newQuantity;
+            cin >> newQuantity;
+            while (newQuantity < 0) {
+                cout << "Error: ";
+                cin >> newQuantity;
+            }
+            inventory[i].quantity = newQuantity;
+            cout << "Stock updated!\n";
+            return 0;
+        }
+    }
+    cout << "Item with ID " << updateId << " Error.\n";
+    return -1;
         	break;
         case 4: // All
         	cout << "Generate Summary Report \n";
