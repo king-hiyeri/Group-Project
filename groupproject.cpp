@@ -59,6 +59,46 @@ int main()
         	
         case 2: // Thierry
         	cout << "Search for an Item \n";
+		int choice, position, searchID;
+		string searchName;
+		
+		cout << "Press 1 to search item by ID\nPress 2 to search item by name: ";
+		cin >> choice;
+		
+		if (choice == 1){
+			cout << "Enter item ID: ";
+			cin >> searchID;
+			
+			for (i = 0; i < size: i++)
+			{
+				if (searchID == newItem[i].itemID){
+					position = i;
+				}
+			}
+			
+		}else if (choice == 2){
+			cout << "Enter item name: ";
+			cin >> searchName;
+			
+			for (i=0; i < size: i++)
+			{
+				if (searchName == newItem[i].name){
+					position = i;
+				}
+			}
+			
+		}else {
+			cout << "Invalid input. Please enter a valid input."
+			position = -1;
+		}
+		
+		while (position != -1){
+			cout << "--------------------------Search result-----------------------------"
+			cout << newItem[position].itemID << " " << newItem[position].name << " "
+				 << newItem[position].quantity << " " << newItem[position].price << endl;
+			break;
+		}
+		
         	break;
         case 3: // Luq
         	cout << "Update Stock \n";
