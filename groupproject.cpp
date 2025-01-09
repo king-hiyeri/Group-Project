@@ -1,16 +1,16 @@
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
-struct details {
-    string itemID;
+struct details { // Define a structure to store item details
+    string itemID; 
     string name;
     int quantity; 
     float price;
 };
 
-void addItem(details newItem[], int &size) { // Function to store item details in an array of 'details'.
+// Function to store item details in an array of 'details'.
+void addItem(details newItem[], int &size) { 
     int resp = 1;
     while (resp != 0 && size < 100) { // Sentinel controlled loop & the storage value (size) for item details is less than 100.
         cout << "Item ID: ";
@@ -42,7 +42,7 @@ void addItem(details newItem[], int &size) { // Function to store item details i
         size++; // Occupies 1 storage size
         
         cout << "\nAdd more Items? "; // Asks user if they want to add more items
-        cout << "(Input 1 to continue, Input 0 to return to menu)\n";
+        cout << "(Input 1 to continue, Input 0 to return to menu)\n"; // User inputs 0 if they want to return to menu (Sentinel-Controlled loop)
         cin >> resp;
         cout << "--------------------------------------------------------------------\n\n";
     }
@@ -182,12 +182,11 @@ void generateSummaryReport(details newItem[], int size) {
 	}
     	
 	}
-
+// Main function to run the Inventory Tracking System
 int main() {
     int choice;
     int size = 0;
-    details newItem[100];
-    
+    details newItem[100]; // Set the storage to 100
     do {
         cout << "Inventory Tracking System \n";
         cout << "1. Add an Item \n";
@@ -197,10 +196,10 @@ int main() {
         cout << "5. Exit \n\n";
     
         cout << "Enter your choice: ";
-        cin >> choice;
+        cin >> choice; // User inputs their choice 
         cout << "--------------------------------------------------------------------\n";
     
-        switch (choice) {
+        switch (choice) { 
         case 1:
             addItem(newItem, size);
             break;
@@ -219,8 +218,7 @@ int main() {
         default:
             cout << "Invalid Input\n\n";
         }
-    } while (choice != 5);
+    } while (choice != 5); // Program ends when user input 5 (Sentinel-Controlled loop)
     
     return 0;
 }
-
