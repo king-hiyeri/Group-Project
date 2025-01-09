@@ -6,15 +6,15 @@ using namespace std;
 struct details {
     string itemID;
     string name;
-    int quantity;  // Changed quantity to int
+    int quantity; 
     float price;
 };
 
-void addItem(details newItem[], int &size) {
+void addItem(details newItem[], int &size) { // Function to store item details in an array of details.
     int resp = 1;
     while (resp != 0 && size < 100) { // Sentinel controlled loop
         cout << "Item ID: ";
-        cin >> newItem[size].itemID;
+        cin >> newItem[size].itemID; // User input Item ID
         if (newItem[size].itemID.empty()) {  // Check if itemID is empty
             cout << "Invalid input. Please input again " << endl;
             continue; // Retry the current iteration
