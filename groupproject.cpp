@@ -10,38 +10,38 @@ struct details {
     float price;
 };
 
-void addItem(details newItem[], int &size) { // Function to store item details in an array of details.
+void addItem(details newItem[], int &size) { // Function to store item details in an array of 'details'.
     int resp = 1;
-    while (resp != 0 && size < 100) { // Sentinel controlled loop
+    while (resp != 0 && size < 100) { // Sentinel controlled loop & the storage value (size) for item details is less than 100.
         cout << "Item ID: ";
-        cin >> newItem[size].itemID; // User input Item ID
+        cin >> newItem[size].itemID; // User inputs Item ID
         if (newItem[size].itemID.empty()) {  // Check if itemID is empty
             cout << "Invalid input. Please input again " << endl;
             continue; // Retry the current iteration
         }
         
         cout << "Name: ";
-        cin >> newItem[size].name;
+        cin >> newItem[size].name; // User inputs Item name
         
         cout << "Quantity: ";
-        cin >> newItem[size].quantity;
+        cin >> newItem[size].quantity; // User inputs Item quantity
         while (newItem[size].quantity < 0) {  // Check if quantity is negative
             cout << "Quantity cannot be negative. Please input again: ";
-            cin >> newItem[size].quantity;
+            cin >> newItem[size].quantity; // User reinputs Item quantity
         }
         
         cout << "Price: $";
-        cin >> newItem[size].price;
+        cin >> newItem[size].price; // User inputs Item price
         while (newItem[size].price < 0) {  // Check if price is negative
             cout << "Price cannot be negative. Please input again: RM";
-            cin >> newItem[size].price;
+            cin >> newItem[size].price; // User reinputs Item price
         }
         
         cout << "\n--------------------------------------------------------------------";
          
-        size++;
+        size++; // Occupies 1 storage size
         
-        cout << "\nAdd more Items? ";
+        cout << "\nAdd more Items? "; // Asks user if they want to add more items
         cout << "(Input 1 to continue, Input 0 to return to menu)\n";
         cin >> resp;
         cout << "--------------------------------------------------------------------\n\n";
