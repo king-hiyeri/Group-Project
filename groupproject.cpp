@@ -48,53 +48,57 @@ void addItem(details newItem[], int &size) {
     }
 }
 
-void searchItem(details newItem[], int size) {
+void searchItem(details newItem[], int size) { // Function to find item with structure and array as its first parameter and size as the second parameter
     cout << "Search for an Item \n";
-    int choice, position = -1;
-    int resp = 1;
+    int choice, position = -1;                 // Ensure that no search result displayed for inexistent message rather it display an error message
+    int resp = 1;                              // Declaring and initializing sentinel value to control the while loop so that the while loop execute once before checking the sentinel value again
     string searchID, searchName;
     
-    while (resp != 0) {
-        cout << "Input 1 to search item by ID\nInput 2 to search item by name: ";
+    while (resp != 0) {                                   // Sentinel controlled while loop, when resp equal to 0, the condition is false
+        cout << "Press 1 to search item by ID /t Press 2 to search item by name... ";               // Give the user choice to search by Id or Name
         cin >> choice;
     
-        if (choice == 1) {
+        if (choice == 1) {                                 // Search by item ID
             cout << "Enter item ID: ";
             cin >> searchID;
             cout << "\n\n";
-            for (int i = 0; i < size; i++) {
-                if (searchID == newItem[i].itemID) {
+            for (int i = 0; i < size; i++)
+	    {                
+                if (searchID == newItem[i].itemID) {      // Search by going through the list one by one, comparing each ID the array
                     position = i;
-                    break;
-                }
-            }
-        } else if (choice == 2) {
+                    break; }                              // Item found, exit the loop
+            } 
+		
+        } else if (choice == 2) {                          // Search by item name
             cout << "Enter item name: ";
             cout << "\n\n";
             cin >> searchName;
-            for (int i = 0; i < size; i++) {
-                if (searchName == newItem[i].name) {
+            for (int i = 0; i < size; i++) 
+	    {
+                if (searchName == newItem[i].name) {       // Search by going through the list one by one, comparing each string in the array
                     position = i;
-                    break;
-                }
+                    break; }                               // Item found, exit the loop
             }
-        } else {
+		
+        } else {                                                        // If the user enter input other than 1 or 2.
             cout << "Invalid input. Please enter a valid input.\n";
-            continue;
+            continue;                                                   // Go back to the line 58 that prompt an input from user until valid input are entered
         }
 
-        if (position != -1) {
+	    
+        if (position != -1) {            //Position must be positive integers since i is declared to start with value 0 in line 65 and 76, also array only accepts positive integers as its index
             cout << "--------------------------Search result-----------------------------\n";
-            cout << "ID: " << newItem[position].itemID << " | Name: " << newItem[position].name << " | Quantity: " << newItem[position].quantity << " | Price: RM" << newItem[position].price << endl;
+            cout << "ID: " << newItem[position].itemID << " | Name: " << newItem[position].name << " | Quantity: "
+		 << newItem[position].quantity << " | Price: RM" << newItem[position].price << endl;                   // Print all output for the particular item one by one
             cout << "--------------------------------------------------------------------\n";
             cout << "Search more Items? ";
-            cout << "(Input 1 to continue, Input 0 to return to menu)\n";
+            cout << "(Input 1 to continue, Input 0 to return to menu)\n";                                    // Give the user option to search again or return to the menu interface
             cin >> resp;
             cout << "--------------------------------------------------------------------\n\n";
-        } else {
+        } else {                                                                                             // Item is not found in the array
             cout << "Item not found.\n";
             cout << "Search Items again? ";
-            cout << "(Input 1 to continue, Input 0 to return to menu)\n";
+            cout << "(Input 1 to continue, Input 0 to return to menu)\n";                                    // Give the user option to search again or return to the menu interface
             cin >> resp;
             cout << "--------------------------------------------------------------------\n\n";
         }
@@ -204,7 +208,7 @@ int main() {
             addItem(newItem, size);
             break;
         case 2:
-            searchItem(newItem, size);
+            searchItem(newItem, size);                        // call the searchItem function
             break;
         case 3:
             updateStock(newItem, size);
