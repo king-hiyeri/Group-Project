@@ -68,7 +68,7 @@ void searchItem(details newItem[], int size) { // Function to find item with str
                     position = i;
                     break; }                              // Item found, exit the loop
              else {
-            	cout << "Alert!" << endl;
+            	cout << "Alert!" << endl;                 // Item is not found, prompt user to re-enter, go to line 108
             	position = -1;
             	break;
 			} 
@@ -76,18 +76,17 @@ void searchItem(details newItem[], int size) { // Function to find item with str
 		
         } else if (choice == 2) {                          // Search by item name
             cout << endl << "Enter item name: ";
-            cout << "\n\n";
             cin >> searchName;
             for (int i = 0; i < size; i++) 
 	    {
                 if (searchName == newItem[i].name) {       // Search by going through the list one by one, comparing each string in the array
                     position = i;
                     break; }                               // Item found, exit the loop
-             else {
-            	cout << "Alert!" << endl;
+             	else {
+            	cout << "Alert!" << endl;                  // Item is not found, prompt user to re-enter, go to line 108
             	position = -1;
             	break;
-			}
+				}
 		}
 		
         } else {                                                        // If the user enter input other than 1 or 2.
