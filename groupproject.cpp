@@ -55,11 +55,11 @@ void searchItem(details newItem[], int size) { // Function to find item with str
     string searchID, searchName;
     
     while (resp != 0) {                                   // Sentinel controlled while loop, when resp equal to 0, the condition is false
-        cout << "Press 1 to search item by ID /t Press 2 to search item by name... ";               // Give the user choice to search by Id or Name
+        cout << endl << "Press 1 to search item by ID \t Press 2 to search item by name... ";               // Give the user choice to search by Id or Name
         cin >> choice;
     
         if (choice == 1) {                                 // Search by item ID
-            cout << "Enter item ID: ";
+            cout << endl << "Enter item ID: ";
             cin >> searchID;
             cout << "\n\n";
             for (int i = 0; i < size; i++)
@@ -67,10 +67,15 @@ void searchItem(details newItem[], int size) { // Function to find item with str
                 if (searchID == newItem[i].itemID) {      // Search by going through the list one by one, comparing each ID the array
                     position = i;
                     break; }                              // Item found, exit the loop
-            } 
+             else {
+            	cout << "Alert!" << endl;
+            	position = -1;
+            	break;
+			} 
+		}
 		
         } else if (choice == 2) {                          // Search by item name
-            cout << "Enter item name: ";
+            cout << endl << "Enter item name: ";
             cout << "\n\n";
             cin >> searchName;
             for (int i = 0; i < size; i++) 
@@ -78,7 +83,12 @@ void searchItem(details newItem[], int size) { // Function to find item with str
                 if (searchName == newItem[i].name) {       // Search by going through the list one by one, comparing each string in the array
                     position = i;
                     break; }                               // Item found, exit the loop
-            }
+             else {
+            	cout << "Alert!" << endl;
+            	position = -1;
+            	break;
+			}
+		}
 		
         } else {                                                        // If the user enter input other than 1 or 2.
             cout << "Invalid input. Please enter a valid input.\n";
