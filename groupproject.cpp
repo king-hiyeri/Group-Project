@@ -67,12 +67,6 @@ void searchItem(details newItem[], int size) { // Function to find item with str
                 if (searchID == newItem[i].itemID) {      // Search by going through the list one by one, comparing each ID the array
                     position = i;
                     break; }                              // Item found, exit the loop
-             else {
-            	cout << "Alert!" << endl;                 // Item is not found, prompt user to re-enter, go to line 108
-            	position = -1;
-            	break;
-			} 
-		}
 		
         } else if (choice == 2) {                          // Search by item name
             cout << endl << "Enter item name: ";
@@ -82,11 +76,6 @@ void searchItem(details newItem[], int size) { // Function to find item with str
                 if (searchName == newItem[i].name) {       // Search by going through the list one by one, comparing each string in the array
                     position = i;
                     break; }                               // Item found, exit the loop
-             	else {
-            	cout << "Alert!" << endl;                  // Item is not found, prompt user to re-enter, go to line 108
-            	position = -1;
-            	break;
-				}
 		}
 		
         } else {                                                        // If the user enter input other than 1 or 2.
@@ -101,6 +90,7 @@ void searchItem(details newItem[], int size) { // Function to find item with str
 		 << newItem[position].quantity << " | Price: RM" << newItem[position].price << endl;                   // Print all output for the particular item one by one
             cout << "--------------------------------------------------------------------\n";
             cout << "Search more Items? ";
+		position = -1;                                                                               // position is reset to default if the user wants to search for another item
             cout << "(Input 1 to continue, Input 0 to return to menu)\n";                                    // Give the user option to search again or return to the menu interface
             cin >> resp;
             cout << "--------------------------------------------------------------------\n\n";
